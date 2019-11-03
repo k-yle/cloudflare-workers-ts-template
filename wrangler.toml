@@ -1,0 +1,22 @@
+# cloudflare worker configuration
+account_id = "<FIXME: cloudflare account id>"
+zone_id = "<FIXME: cloudflare zone id>"
+
+type = "webpack"
+webpack_config = "config/webpack.config.js"
+
+# default dev environment
+name = "myapp-dev"
+workers_dev = true
+
+# environment configuration
+[env.staging]
+name = "myapp-staging"
+route = "api-staging.myapp.com/*"
+workers_dev = false
+
+# environment configuration
+[env.production]
+name = "myapp"
+route = "api.myapp.com/*"
+workers_dev = false
