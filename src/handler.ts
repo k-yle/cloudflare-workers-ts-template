@@ -1,3 +1,9 @@
-export default async function handleRequest(request: Request): Promise<Response> {
-  return new Response(`request method: ${request.method}. It's ${new Date()}`);
-}
+import Router from './util/router';
+
+import version from './routes/version';
+import square from './routes/square';
+
+export default new Router()
+  .get('/version', version)
+  .post('/square', square)
+  .any('/', version);
