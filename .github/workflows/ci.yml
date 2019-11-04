@@ -1,0 +1,41 @@
+name: Build
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x]
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: npm install and test
+      run: |
+        npm ci
+        npm test
+      env:
+        CI: true
+
+    - name: Upload coverage
+      run: |
+        npm run coverage
+      env:
+        CODECLIMATE_REPO_TOKEN: ${{ secrets.CODECLIMATE_REPO_TOKEN }}
+
+    # - name: Deploy to Cloudflare workers
+    #   run: |
+    #     npm run deploy -- --env production
+    #   env:
+    #     CF_API_KEY: ${{ secrets.CF_API_KEY }}
+    #     CF_EMAIL: ${{ secrets.CF_EMAIL }}
+

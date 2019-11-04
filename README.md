@@ -1,6 +1,7 @@
 # cloudflare-workers-ts-template
-[![Build Status](https://travis-ci.com/k-yle/cloudflare-workers-ts-template.svg?token=cXhNq1qwFWSzBJJ5nobA&branch=master)](https://travis-ci.com/k-yle/cloudflare-workers-ts-template)
-[![codecov](https://codecov.io/gh/k-yle/cloudflare-workers-ts-template/branch/master/graph/badge.svg?token=3i9vW9Arcb)](https://codecov.io/gh/k-yle/cloudflare-workers-ts-template)
+[![Build Status](https://github.com/k-yle/cloudflare-workers-ts-template/workflows/Build/badge.svg)](https://github.com/k-yle/cloudflare-workers-ts-template/actions)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/88ec71c6b81cb7f07c46/test_coverage)](https://codeclimate.com/github/k-yle/cloudflare-workers-ts-template/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/88ec71c6b81cb7f07c46/maintainability)](https://codeclimate.com/github/k-yle/cloudflare-workers-ts-template/maintainability)
 
 ⌚ A serverless (FaaS) template utilizing TypeScript on Cloudflare Workers.
 
@@ -54,6 +55,6 @@ The CI will automatically deploy to `production` if the tests pass.
 This is configured in `wrangler.toml`
 
 # DevOps
-Codecov is used for code coverage. Travis runs the CI pipeline.
+GitHub actions runs the CI pipeline. [Code Climate](https://codeclimate.com) is used for coverage & maintainability.
 
-The CI vm must have `CF_API_KEY`, `CF_EMAIL`, and `CODECOV_TOKEN` set.
+The CI vm must have `CF_API_KEY`, `CF_EMAIL`, and `CODECLIMATE_REPO_TOKEN` set.

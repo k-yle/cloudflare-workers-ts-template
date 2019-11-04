@@ -10,7 +10,7 @@
     "build": "webpack --config config/webpack.config.js",
     "unit-tests": "nyc ts-mocha -p config/tsconfig.json test/**/*.test.ts",
     "test": "npm run clean && npm run lint && npm run build && npm run unit-tests",
-    "coverage": "nyc report --reporter=json && codecov -f coverage/*.json",
+    "coverage": "codeclimate-test-reporter < ./coverage/lcov.info",
     "start": "wrangler preview --watch",
     "deploy": "wrangler publish"
   },
@@ -24,7 +24,7 @@
     "@types/webpack": "^4.39.8",
     "@typescript-eslint/eslint-plugin": "^2.6.0",
     "@typescript-eslint/parser": "^2.6.0",
-    "codecov": "^3.6.1",
+    "codeclimate-test-reporter": "^0.5.1",
     "eslint": "^6.6.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
